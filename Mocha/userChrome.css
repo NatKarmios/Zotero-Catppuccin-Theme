@@ -17,7 +17,7 @@
  *============================================================================*/
 
 :root {
-	--rosewater: #f5e0dc;
+  --rosewater: #f5e0dc;
   --flamingo: #f2cdcd;
   --pink: #f5c2e7;
   --mauve: #cba6f7;
@@ -44,17 +44,31 @@
   --subtext0: #a6adc8; /* Tertiary text */
 
   --overlay0: #6c7086; /* For disabled or less prominent elements */
+
+  --fill-secondary: var(--subtext0) !important;
+  --color-accent: var(--mauve) !important;
+  --color-focus-border: var(--mauve) !important;
 }
 
 * {border: 0 !important; }
 
-#zotero-tb, #zotero-toolbar, #navigator-toolbox, #tab-bar-container {
+#zotero-tb, #zotero-toolbar, .zotero-toolbar, #navigator-toolbox,
+#tab-bar-container, .tag-selector, #zotero-view-item-sidenav {
   background: var(--base) !important;
   color: var(--text) !important;
 }
 
-#zotero-toolbar {
+#zotero-toolbar, .zotero-toolbar {
   border-bottom: 1px solid var(--crust) !important;
+}
+
+#zotero-tabs-toolbar {
+  border: none !important;
+  background: var(--mantle) !important;
+}
+
+#zotero-tabs-menu-wrapper {
+  background: var(--mantle) !important;
 }
 
 #navigator-toolbox menu {
@@ -109,11 +123,15 @@
   font-weight: bold !important;
 }
 
-#zotero-tb-search {
+#zotero-collections-search, #zotero-tb-search-textbox {
   -moz-appearance: none !important;
   background-color: var(--surface0) !important;
   color: var(--text) !important;
   border: 1px solid var(--crust) !important;
+}
+
+editable-text .input:focus {
+  background-color: var(--surface0) !important;
 }
 
 #zotero-pane {
@@ -155,7 +173,7 @@ treechildren {
 }
 
 .tabs {
-  background: var(--surface0) !important;
+  background: var(--mantle) !important;
   color: var(--text) !important;
   border: 0px !important;
 }
@@ -178,7 +196,7 @@ treechildren {
   -moz-appearance: none !important;
   color: var(--subtext0) !important;
   background: var(--surface0) !important;
-  border-top: 0px solid var(--blue) !important;
+  border-top: 0px solid var(--color-accent) !important;
   border-left: 1px solid var(--crust) !important;
   border-right: 0px solid var(--crust) !important;
   border-radius: 0px !important;
@@ -187,7 +205,7 @@ treechildren {
 .tab.selected:not(.highlighted){
   color: var(--text) !important;
   background: var(--base) !important;
-  border-top: 3px solid var(--blue) !important;
+  border-top: 3px solid var(--color-accent) !important;
   border-left: 0px solid var(--crust) !important;
   border-right: 0px solid var(--crust) !important;
   border-radius: 0px !important;
@@ -328,7 +346,7 @@ tabpanel {
 tab[selected="true"] {
   color: var(--text) !important;
   background: var(--surface1) !important;
-  border-top: 3px solid var(--blue) !important;
+  border-top: 3px solid var(--color-accent) !important;
 }
 
 tab {
@@ -400,14 +418,14 @@ tab:hover {
 
 .zotero-view-tabbox tab[selected="true"]{
   background: var(--surface0) !important;
-  border-top: 3px solid var(--blue) !important;
+  border-top: 3px solid var(--color-accent) !important;
 }
 
 .zotero-view-tabbox tab {
   -moz-appearance: none !important;
   color: var(--subtext0) !important;
   background: var(--base) !important;
-  border-top: 0px solid var(--blue) !important;
+  border-top: 0px solid var(--color-accent) !important;
   border-left: 0px solid var(--crust) !important;
   border-right: 1px solid var(--crust) !important;
   border-radius: 0px !important;
@@ -427,16 +445,20 @@ tab:hover {
   color: var(--base) !important;
 }
 
+.zotero-view-item-main {
+  background: none !important;
+};
+
 #zotero-item-pane-content tab[selected="true"]{
   background: var(--surface0) !important;
-  border-top: 3px solid var(--blue) !important;
+  border-top: 3px solid var(--color-accent) !important;
 }
 
 #zotero-item-pane-content tab {
   -moz-appearance: none !important;
   color: var(--subtext0) !important;
   background: var(--base) !important;
-  border-top: 0px solid var(--blue) !important;
+  border-top: 0px solid var(--color-accent) !important;
   border-left: 0px solid var(--crust) !important;
   border-right: 1px solid var(--crust) !important;
   border-radius: 0px !important;
@@ -556,3 +578,4 @@ prefwindow .chromeclass-toolbar {
 #zotero-note-window blockquote p {
   text-indent: 0;
 }
+
